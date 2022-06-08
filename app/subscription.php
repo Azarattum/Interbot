@@ -16,7 +16,7 @@ function unsubscribe($id)
   global $filename;
 
   $subscribers = getSubscribers();
-  unset($subscribers[array_search($id, $subscribers)]);
+  array_splice($subscribers, array_search($id, $subscribers), 1);
   file_put_contents($filename, json_encode($subscribers));
 }
 
